@@ -1,245 +1,469 @@
 {
-  "version": "2.10",
+  "version": "2.11",
   "children": [
     {
-      "id": "proposal-detail-page",
       "type": "frame",
+      "id": "proposal-detail-page",
       "x": 0,
       "y": 0,
       "width": 375,
-      "height": 812,
       "fill": "#FDF8F5",
       "layout": "vertical",
-      "clip": true,
       "children": [
         {
-          "id": "status-bar",
           "type": "frame",
+          "id": "status-bar",
           "width": 375,
           "height": 44,
           "fill": "#FFFFFF",
-          "layout": "horizontal",
-          "justifyContent": "space-between",
+          "padding": [
+            0,
+            20
+          ],
           "alignItems": "center",
-          "padding": [0, 20, 0, 20],
           "children": [
-            { "id": "status-time", "type": "text", "content": "9:41", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" },
             {
-              "id": "status-icons",
+              "type": "text",
+              "id": "status-time",
+              "fill": "#2D2A26",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
               "type": "frame",
-              "layout": "horizontal",
+              "id": "status-icons",
               "gap": 6,
               "children": [
-                { "id": "signal-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "signal", "width": 16, "height": 16, "fill": "#2D2A26" },
-                { "id": "wifi-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "wifi", "width": 16, "height": 16, "fill": "#2D2A26" },
-                { "id": "battery-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "battery-full", "width": 16, "height": 16, "fill": "#2D2A26" }
+                {
+                  "type": "icon_font",
+                  "id": "signal-icon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "signal",
+                  "iconFontFamily": "lucide",
+                  "fill": "#2D2A26"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "wifi-icon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "wifi",
+                  "iconFontFamily": "lucide",
+                  "fill": "#2D2A26"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "battery-icon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "battery-full",
+                  "iconFontFamily": "lucide",
+                  "fill": "#2D2A26"
+                }
               ]
             }
           ]
         },
-
         {
-          "id": "nav-bar",
           "type": "frame",
+          "id": "nav-bar",
           "width": 375,
           "height": 56,
-          "layout": "horizontal",
-          "justifyContent": "space-between",
-          "alignItems": "center",
-          "padding": [0, 16, 0, 16],
           "fill": "#FFFFFF",
-          "stroke": { "color": "#E8E4DF", "thickness": 1, "alignment": "inside" },
+          "stroke": {
+            "thickness": 1
+          },
+          "padding": [
+            0,
+            16
+          ],
+          "alignItems": "center",
           "children": [
-            { "id": "nav-back", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "arrow-left", "width": 24, "height": 24, "fill": "#2D2A26" },
-            { "id": "nav-title", "type": "text", "content": "提议详情", "fontSize": 17, "fontWeight": 600, "fill": "#2D2A26" },
-            { "id": "nav-spacer", "type": "frame", "width": 24, "height": 24 }
+            {
+              "type": "icon_font",
+              "id": "nav-back",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "arrow-left",
+              "iconFontFamily": "lucide",
+              "fill": "#2D2A26"
+            },
+            {
+              "type": "text",
+              "id": "nav-title",
+              "fill": "#2D2A26",
+              "content": "提议详情",
+              "fontFamily": "Inter",
+              "fontSize": 17,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "nav-spacer",
+              "width": 24,
+              "height": 24
+            }
           ]
         },
-
         {
-          "id": "detail-content",
           "type": "frame",
+          "id": "detail-content",
           "width": 375,
           "layout": "vertical",
           "gap": 16,
-          "padding": [20, 16, 20, 16],
+          "padding": [
+            20,
+            16
+          ],
           "children": [
             {
-              "id": "proposal-card",
               "type": "frame",
+              "id": "proposal-card",
               "width": 343,
-              "cornerRadius": 16,
               "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "rgba(0,0,0,0.06)",
+                "blur": 12
+              },
               "layout": "vertical",
               "gap": 16,
               "padding": 20,
-              "effect": { "type": "shadow", "color": "rgba(0,0,0,0.06)", "x": 0, "y": 2, "blur": 12 },
               "children": [
                 {
-                  "id": "proposal-status-row",
                   "type": "frame",
-                  "layout": "horizontal",
-                  "justifyContent": "space-between",
+                  "id": "proposal-status-row",
                   "alignItems": "center",
                   "children": [
                     {
-                      "id": "proposal-badge",
                       "type": "frame",
-                      "cornerRadius": 20,
+                      "id": "proposal-badge",
                       "fill": "#FFF3E0",
-                      "padding": [6, 14, 6, 14],
-                      "layout": "horizontal",
-                      "alignItems": "center",
+                      "cornerRadius": 20,
                       "gap": 6,
+                      "padding": [
+                        6,
+                        14
+                      ],
+                      "alignItems": "center",
                       "children": [
-                        { "id": "badge-dot", "type": "ellipse", "width": 8, "height": 8, "fill": "#FF9800" },
-                        { "id": "badge-text", "type": "text", "content": "待确认", "fontSize": 13, "fontWeight": 500, "fill": "#FF9800" }
+                        {
+                          "type": "ellipse",
+                          "id": "badge-dot",
+                          "fill": "#FF9800",
+                          "width": 8,
+                          "height": 8
+                        },
+                        {
+                          "type": "text",
+                          "id": "badge-text",
+                          "fill": "#FF9800",
+                          "content": "待确认",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
                       ]
                     },
-                    { "id": "proposal-id", "type": "text", "content": "#P-0023", "fontSize": 12, "fill": "#C4BBB2" }
+                    {
+                      "type": "text",
+                      "id": "proposal-id",
+                      "fill": "#C4BBB2",
+                      "content": "#P-0023",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
                   ]
                 },
-
-                { "id": "proposal-title", "type": "text", "content": "下周末烧烤聚餐", "fontSize": 22, "fontWeight": 700, "fill": "#2D2A26" },
-
                 {
-                  "id": "info-rows",
+                  "type": "text",
+                  "id": "proposal-title",
+                  "fill": "#2D2A26",
+                  "content": "下周末烧烤聚餐",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
                   "type": "frame",
+                  "id": "info-rows",
                   "layout": "vertical",
                   "gap": 12,
                   "children": [
                     {
-                      "id": "info-date",
                       "type": "frame",
-                      "layout": "horizontal",
+                      "id": "info-date",
                       "gap": 10,
                       "alignItems": "center",
                       "children": [
-                        { "id": "info-date-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "calendar", "width": 18, "height": 18, "fill": "#8A857E" },
-                        { "id": "info-date-label", "type": "text", "content": "计划日期", "fontSize": 14, "fill": "#8A857E" },
-                        { "id": "info-date-value", "type": "text", "content": "2026年4月27日（周日）", "fontSize": 14, "fontWeight": 500, "fill": "#2D2A26" }
+                        {
+                          "type": "icon_font",
+                          "id": "info-date-icon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "calendar",
+                          "iconFontFamily": "lucide",
+                          "fill": "#8A857E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "info-date-label",
+                          "fill": "#8A857E",
+                          "content": "计划日期",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "info-date-value",
+                          "fill": "#2D2A26",
+                          "content": "2026年4月27日（周日）",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
                       ]
                     },
                     {
-                      "id": "info-author",
                       "type": "frame",
-                      "layout": "horizontal",
+                      "id": "info-author",
                       "gap": 10,
                       "alignItems": "center",
                       "children": [
-                        { "id": "info-author-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "user", "width": 18, "height": 18, "fill": "#8A857E" },
-                        { "id": "info-author-label", "type": "text", "content": "发起人", "fontSize": 14, "fill": "#8A857E" },
                         {
-                          "id": "author-chip",
+                          "type": "icon_font",
+                          "id": "info-author-icon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "user",
+                          "iconFontFamily": "lucide",
+                          "fill": "#8A857E"
+                        },
+                        {
+                          "type": "text",
+                          "id": "info-author-label",
+                          "fill": "#8A857E",
+                          "content": "发起人",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
                           "type": "frame",
-                          "layout": "horizontal",
+                          "id": "author-chip",
                           "gap": 6,
                           "alignItems": "center",
                           "children": [
                             {
-                              "id": "author-avatar",
                               "type": "frame",
+                              "id": "author-avatar",
                               "width": 24,
                               "height": 24,
-                              "cornerRadius": 12,
                               "fill": "#FFF0EB",
-                              "layout": "horizontal",
+                              "cornerRadius": 12,
                               "justifyContent": "center",
                               "alignItems": "center",
                               "children": [
-                                { "id": "author-avatar-text", "type": "text", "content": "妈", "fontSize": 11, "fontWeight": 600, "fill": "#E8734A" }
+                                {
+                                  "type": "text",
+                                  "id": "author-avatar-text",
+                                  "fill": "#E8734A",
+                                  "content": "妈",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 11,
+                                  "fontWeight": "normal"
+                                }
                               ]
                             },
-                            { "id": "author-name", "type": "text", "content": "妈妈", "fontSize": 14, "fontWeight": 500, "fill": "#2D2A26" }
+                            {
+                              "type": "text",
+                              "id": "author-name",
+                              "fill": "#2D2A26",
+                              "content": "妈妈",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
                           ]
                         }
                       ]
                     }
                   ]
                 },
-
                 {
-                  "id": "divider",
                   "type": "frame",
+                  "id": "divider",
                   "width": 303,
                   "height": 1,
                   "fill": "#F0ECE8"
                 },
-
                 {
-                  "id": "desc-section",
                   "type": "frame",
+                  "id": "desc-section",
+                  "width": "fill_container",
                   "layout": "vertical",
                   "gap": 8,
                   "children": [
-                    { "id": "desc-label", "type": "text", "content": "补充说明", "fontSize": 13, "fontWeight": 500, "fill": "#8A857E" },
-                    { "id": "desc-text", "type": "text", "content": "在小区旁边的河边烧烤区，大家一起来。需要提前买食材和木炭，哥哥帮忙搬桌椅。", "fontSize": 15, "fill": "#2D2A26", "lineHeight": 1.6, "textGrowth": "fixed-width" }
+                    {
+                      "type": "text",
+                      "id": "desc-label",
+                      "fill": "#8A857E",
+                      "content": "补充说明",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "desc-text",
+                      "fill": "#2D2A26",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "在小区旁边的河边烧烤区，大家一起来。需要提前买食材和木炭，哥哥帮忙搬桌椅。",
+                      "lineHeight": 1.6,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
                   ]
                 }
               ]
             },
-
             {
-              "id": "confirm-section",
               "type": "frame",
+              "id": "confirm-section",
               "width": 343,
-              "cornerRadius": 16,
               "fill": "#FFFFFF",
+              "cornerRadius": 16,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "rgba(0,0,0,0.04)",
+                "blur": 8
+              },
               "layout": "vertical",
               "gap": 16,
               "padding": 20,
-              "effect": { "type": "shadow", "color": "rgba(0,0,0,0.04)", "x": 0, "y": 2, "blur": 8 },
               "children": [
                 {
-                  "id": "confirm-header",
                   "type": "frame",
-                  "layout": "horizontal",
+                  "id": "confirm-header",
                   "gap": 8,
                   "alignItems": "center",
                   "children": [
-                    { "id": "confirm-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "users", "width": 18, "height": 18, "fill": "#8A857E" },
-                    { "id": "confirm-title", "type": "text", "content": "确认状态", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" }
+                    {
+                      "type": "icon_font",
+                      "id": "confirm-icon",
+                      "width": 18,
+                      "height": 18,
+                      "iconFontName": "users",
+                      "iconFontFamily": "lucide",
+                      "fill": "#8A857E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "confirm-title",
+                      "fill": "#2D2A26",
+                      "content": "确认状态",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
                   ]
                 },
                 {
-                  "id": "confirm-hint",
                   "type": "frame",
-                  "cornerRadius": 8,
+                  "id": "confirm-hint",
                   "fill": "#F9F6F3",
-                  "padding": [10, 14, 10, 14],
-                  "layout": "horizontal",
+                  "cornerRadius": 8,
                   "gap": 8,
+                  "padding": [
+                    10,
+                    14
+                  ],
                   "alignItems": "center",
                   "children": [
-                    { "id": "hint-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "info", "width": 16, "height": 16, "fill": "#8A857E" },
-                    { "id": "hint-text", "type": "text", "content": "任意一位家庭成员确认即通过", "fontSize": 13, "fill": "#8A857E" }
+                    {
+                      "type": "icon_font",
+                      "id": "hint-icon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "info",
+                      "iconFontFamily": "lucide",
+                      "fill": "#8A857E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "hint-text",
+                      "fill": "#8A857E",
+                      "content": "任意一位家庭成员确认即通过",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
                   ]
                 },
-                { "id": "confirm-status", "type": "text", "content": "暂无人确认", "fontSize": 14, "fill": "#C4BBB2", "textAlign": "center" }
+                {
+                  "type": "text",
+                  "id": "confirm-status",
+                  "fill": "#C4BBB2",
+                  "content": "暂无人确认",
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
               ]
             },
-
             {
-              "id": "confirm-button",
               "type": "frame",
+              "id": "confirm-button",
               "width": 343,
               "height": 54,
-              "cornerRadius": 14,
               "fill": "#E8734A",
-              "layout": "horizontal",
+              "cornerRadius": 14,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "rgba(232,115,74,0.3)",
+                "blur": 16
+              },
+              "gap": 8,
               "justifyContent": "center",
               "alignItems": "center",
-              "gap": 8,
-              "effect": { "type": "shadow", "color": "rgba(232,115,74,0.3)", "x": 0, "y": 4, "blur": 16 },
               "children": [
-                { "id": "confirm-btn-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "check-circle", "width": 20, "height": 20, "fill": "#FFFFFF" },
-                { "id": "confirm-btn-text", "type": "text", "content": "确认这个提议", "fontSize": 16, "fontWeight": 600, "fill": "#FFFFFF" }
+                {
+                  "type": "icon_font",
+                  "id": "confirm-btn-icon",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "check-circle",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "confirm-btn-text",
+                  "fill": "#FFFFFF",
+                  "content": "确认这个提议",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "normal"
+                }
               ]
             },
-
             {
-              "id": "note-after-confirm",
               "type": "note",
+              "id": "note-after-confirm",
+              "width": 343,
+              "height": 120,
               "content": "确认后：\n1. 提议状态变为\"已通过\"\n2. 自动创建一条生活记录草稿\n3. 出现\"去完善记录\"入口\n\n若重复确认，提示\"提议已通过\"并引导查看已有记录。"
             }
           ]

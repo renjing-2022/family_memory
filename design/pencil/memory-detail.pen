@@ -1,283 +1,449 @@
 {
-  "version": "2.10",
+  "version": "2.11",
   "children": [
     {
-      "id": "memory-detail-page",
       "type": "frame",
-      "x": 0,
-      "y": 0,
+      "id": "memory-detail-page",
+      "x": -0.5721229954666853,
+      "y": 0.25587966955629327,
+      "rotation": 0.07807194391017262,
       "width": 375,
-      "height": 812,
+      "height": 840,
       "fill": "#FDF8F5",
       "layout": "vertical",
-      "clip": true,
       "children": [
         {
-          "id": "status-bar",
           "type": "frame",
-          "width": 375,
-          "height": 44,
-          "fill": "transparent",
-          "layout": "horizontal",
-          "justifyContent": "space-between",
-          "alignItems": "center",
-          "padding": [0, 20, 0, 20],
+          "id": "status-bar",
           "layoutPosition": "absolute",
           "x": 0,
           "y": 0,
+          "width": 375,
+          "height": 44,
+          "fill": "transparent",
+          "padding": [
+            0,
+            20
+          ],
+          "alignItems": "center",
           "children": [
-            { "id": "status-time", "type": "text", "content": "9:41", "fontSize": 15, "fontWeight": 600, "fill": "#FFFFFF" },
             {
-              "id": "status-icons",
+              "type": "text",
+              "id": "status-time",
+              "fill": "#FFFFFF",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            },
+            {
               "type": "frame",
-              "layout": "horizontal",
+              "id": "status-icons",
               "gap": 6,
               "children": [
-                { "id": "signal-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "signal", "width": 16, "height": 16, "fill": "#FFFFFF" },
-                { "id": "wifi-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "wifi", "width": 16, "height": 16, "fill": "#FFFFFF" },
-                { "id": "battery-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "battery-full", "width": 16, "height": 16, "fill": "#FFFFFF" }
+                {
+                  "type": "icon_font",
+                  "id": "signal-icon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "signal",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "wifi-icon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "wifi",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "battery-icon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "battery-full",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                }
               ]
             }
           ]
         },
-
         {
-          "id": "hero-image",
           "type": "frame",
+          "id": "hero-image",
           "width": 375,
           "height": 300,
           "fill": "#D4CBC2",
-          "layout": "horizontal",
           "justifyContent": "center",
           "alignItems": "center",
           "children": [
-            { "id": "hero-img-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "image", "width": 56, "height": 56, "fill": "#B0A79E" }
+            {
+              "type": "icon_font",
+              "id": "hero-img-icon",
+              "width": 56,
+              "height": 56,
+              "iconFontName": "image",
+              "iconFontFamily": "lucide",
+              "fill": "#B0A79E"
+            }
           ]
         },
-
         {
-          "id": "back-button",
           "type": "frame",
-          "width": 36,
-          "height": 36,
-          "cornerRadius": 18,
-          "fill": "rgba(0,0,0,0.3)",
-          "layout": "horizontal",
-          "justifyContent": "center",
-          "alignItems": "center",
+          "id": "back-button",
           "layoutPosition": "absolute",
           "x": 16,
           "y": 52,
-          "children": [
-            { "id": "back-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "arrow-left", "width": 20, "height": 20, "fill": "#FFFFFF" }
-          ]
-        },
-
-        {
-          "id": "edit-button",
-          "type": "frame",
           "width": 36,
           "height": 36,
-          "cornerRadius": 18,
           "fill": "rgba(0,0,0,0.3)",
-          "layout": "horizontal",
+          "cornerRadius": 18,
           "justifyContent": "center",
           "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "back-icon",
+              "width": 20,
+              "height": 20,
+              "iconFontName": "arrow-left",
+              "iconFontFamily": "lucide",
+              "fill": "#FFFFFF"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "edit-button",
           "layoutPosition": "absolute",
           "x": 323,
           "y": 52,
+          "width": 36,
+          "height": 36,
+          "fill": "rgba(0,0,0,0.3)",
+          "cornerRadius": 18,
+          "justifyContent": "center",
+          "alignItems": "center",
           "children": [
-            { "id": "edit-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "edit-3", "width": 18, "height": 18, "fill": "#FFFFFF" }
+            {
+              "type": "icon_font",
+              "id": "edit-icon",
+              "width": 18,
+              "height": 18,
+              "iconFontName": "edit-3",
+              "iconFontFamily": "lucide",
+              "fill": "#FFFFFF"
+            }
           ]
         },
-
         {
-          "id": "content-card",
           "type": "frame",
-          "width": 375,
-          "layout": "vertical",
-          "cornerRadius": [24, 24, 0, 0],
-          "fill": "#FFFFFF",
-          "padding": [24, 20, 20, 20],
-          "gap": 20,
+          "id": "content-card",
           "layoutPosition": "absolute",
           "x": 0,
           "y": 270,
+          "width": 375,
+          "fill": "#FFFFFF",
+          "cornerRadius": [
+            24,
+            24,
+            0,
+            0
+          ],
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            24,
+            20,
+            20,
+            20
+          ],
           "children": [
             {
-              "id": "title-row",
               "type": "frame",
-              "layout": "horizontal",
-              "justifyContent": "space-between",
+              "id": "title-row",
               "alignItems": "center",
               "children": [
-                { "id": "detail-title", "type": "text", "content": "周末植物园踏青", "fontSize": 22, "fontWeight": 700, "fill": "#2D2A26" },
                 {
-                  "id": "detail-badge",
+                  "type": "text",
+                  "id": "detail-title",
+                  "fill": "#2D2A26",
+                  "content": "周末植物园踏青",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "normal"
+                },
+                {
                   "type": "frame",
-                  "cornerRadius": 20,
+                  "id": "detail-badge",
                   "fill": "#E8F5E9",
-                  "padding": [4, 12, 4, 12],
+                  "cornerRadius": 20,
+                  "padding": [
+                    4,
+                    12
+                  ],
                   "children": [
-                    { "id": "detail-badge-text", "type": "text", "content": "已完成", "fontSize": 12, "fontWeight": 500, "fill": "#4CAF50" }
+                    {
+                      "type": "text",
+                      "id": "detail-badge-text",
+                      "fill": "#4CAF50",
+                      "content": "已完成",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
                   ]
                 }
               ]
             },
-
             {
-              "id": "meta-row",
               "type": "frame",
-              "layout": "horizontal",
+              "id": "meta-row",
               "gap": 16,
               "alignItems": "center",
               "children": [
                 {
+                  "type": "frame",
                   "id": "meta-date",
-                  "type": "frame",
-                  "layout": "horizontal",
-                  "gap": 6,
-                  "alignItems": "center",
-                  "children": [
-                    { "id": "meta-date-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "calendar", "width": 16, "height": 16, "fill": "#8A857E" },
-                    { "id": "meta-date-text", "type": "text", "content": "2026-04-20", "fontSize": 14, "fill": "#8A857E" }
-                  ]
-                },
-                {
-                  "id": "meta-author",
-                  "type": "frame",
-                  "layout": "horizontal",
                   "gap": 6,
                   "alignItems": "center",
                   "children": [
                     {
-                      "id": "meta-author-avatar",
+                      "type": "icon_font",
+                      "id": "meta-date-icon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "calendar",
+                      "iconFontFamily": "lucide",
+                      "fill": "#8A857E"
+                    },
+                    {
+                      "type": "text",
+                      "id": "meta-date-text",
+                      "fill": "#8A857E",
+                      "content": "2026-04-20",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "meta-author",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
                       "type": "frame",
+                      "id": "meta-author-avatar",
                       "width": 22,
                       "height": 22,
-                      "cornerRadius": 11,
                       "fill": "#FFF0EB",
-                      "layout": "horizontal",
+                      "cornerRadius": 11,
                       "justifyContent": "center",
                       "alignItems": "center",
                       "children": [
-                        { "id": "meta-avatar-text", "type": "text", "content": "妈", "fontSize": 10, "fontWeight": 600, "fill": "#E8734A" }
+                        {
+                          "type": "text",
+                          "id": "meta-avatar-text",
+                          "fill": "#E8734A",
+                          "content": "妈",
+                          "fontFamily": "Inter",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
                       ]
                     },
-                    { "id": "meta-author-name", "type": "text", "content": "妈妈", "fontSize": 14, "fill": "#8A857E" }
+                    {
+                      "type": "text",
+                      "id": "meta-author-name",
+                      "fill": "#8A857E",
+                      "content": "妈妈",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
                   ]
                 }
               ]
             },
-
             {
-              "id": "proposal-link",
               "type": "frame",
-              "cornerRadius": 10,
+              "id": "proposal-link",
               "fill": "#FFF0EB",
-              "padding": [10, 14, 10, 14],
-              "layout": "horizontal",
+              "cornerRadius": 10,
               "gap": 8,
+              "padding": [
+                10,
+                14
+              ],
               "alignItems": "center",
               "children": [
-                { "id": "link-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "link", "width": 14, "height": 14, "fill": "#E8734A" },
-                { "id": "link-text", "type": "text", "content": "来自提议：周末去植物园  #P-0021", "fontSize": 13, "fill": "#E8734A" },
-                { "id": "link-arrow", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "chevron-right", "width": 14, "height": 14, "fill": "#E8734A" }
-              ]
-            },
-
-            {
-              "id": "divider-1",
-              "type": "frame",
-              "width": 335,
-              "height": 1,
-              "fill": "#F0ECE8"
-            },
-
-            {
-              "id": "reflection-section",
-              "type": "frame",
-              "layout": "vertical",
-              "gap": 10,
-              "children": [
                 {
-                  "id": "reflection-label",
-                  "type": "frame",
-                  "layout": "horizontal",
-                  "gap": 6,
-                  "alignItems": "center",
-                  "children": [
-                    { "id": "reflection-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "heart", "width": 16, "height": 16, "fill": "#E8734A" },
-                    { "id": "reflection-title", "type": "text", "content": "感想", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" }
-                  ]
+                  "type": "icon_font",
+                  "id": "link-icon",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "link",
+                  "iconFontFamily": "lucide",
+                  "fill": "#E8734A"
                 },
                 {
-                  "id": "reflection-text",
                   "type": "text",
-                  "content": "今天天气特别好，阳光透过树叶洒下来，孩子们在草地上奔跑嬉戏。外婆也难得出来走走，看着一家人在一起，真的很幸福。\n\n下次要记得带野餐垫和风筝！",
-                  "fontSize": 15,
-                  "fill": "#4A4540",
-                  "lineHeight": 1.7,
-                  "textGrowth": "fixed-width"
+                  "id": "link-text",
+                  "fill": "#E8734A",
+                  "content": "来自提议：周末去植物园  #P-0021",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "link-arrow",
+                  "width": 14,
+                  "height": 14,
+                  "iconFontName": "chevron-right",
+                  "iconFontFamily": "lucide",
+                  "fill": "#E8734A"
                 }
               ]
             },
-
             {
-              "id": "divider-2",
               "type": "frame",
+              "id": "divider-1",
               "width": 335,
               "height": 1,
               "fill": "#F0ECE8"
             },
-
             {
-              "id": "photos-section",
               "type": "frame",
+              "id": "reflection-section",
+              "width": "fill_container",
               "layout": "vertical",
               "gap": 10,
               "children": [
                 {
-                  "id": "photos-label",
                   "type": "frame",
-                  "layout": "horizontal",
+                  "id": "reflection-label",
                   "gap": 6,
                   "alignItems": "center",
                   "children": [
-                    { "id": "photos-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "images", "width": 16, "height": 16, "fill": "#E8734A" },
-                    { "id": "photos-title", "type": "text", "content": "更多照片", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" },
-                    { "id": "photos-count", "type": "text", "content": "3张", "fontSize": 13, "fill": "#8A857E" }
+                    {
+                      "type": "icon_font",
+                      "id": "reflection-icon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "heart",
+                      "iconFontFamily": "lucide",
+                      "fill": "#E8734A"
+                    },
+                    {
+                      "type": "text",
+                      "id": "reflection-title",
+                      "fill": "#2D2A26",
+                      "content": "感想",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
                   ]
                 },
                 {
-                  "id": "photo-grid",
+                  "type": "text",
+                  "id": "reflection-text",
+                  "fill": "#4A4540",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "今天天气特别好，阳光透过树叶洒下来，孩子们在草地上奔跑嬉戏。外婆也难得出来走走，看着一家人在一起，真的很幸福。\n\n下次要记得带野餐垫和风筝！",
+                  "lineHeight": 1.7,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "divider-2",
+              "width": 335,
+              "height": 1,
+              "fill": "#F0ECE8"
+            },
+            {
+              "type": "frame",
+              "id": "photos-section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
                   "type": "frame",
-                  "layout": "horizontal",
+                  "id": "photos-label",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "photos-icon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "images",
+                      "iconFontFamily": "lucide",
+                      "fill": "#E8734A"
+                    },
+                    {
+                      "type": "text",
+                      "id": "photos-title",
+                      "fill": "#2D2A26",
+                      "content": "更多照片",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "photos-count",
+                      "fill": "#8A857E",
+                      "content": "3张",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "photo-grid",
                   "gap": 8,
                   "children": [
                     {
+                      "type": "frame",
                       "id": "thumb-1",
-                      "type": "frame",
                       "width": 105,
                       "height": 105,
-                      "cornerRadius": 10,
-                      "fill": "#E8E0D8"
+                      "fill": "#E8E0D8",
+                      "cornerRadius": 10
                     },
                     {
+                      "type": "frame",
                       "id": "thumb-2",
-                      "type": "frame",
                       "width": 105,
                       "height": 105,
-                      "cornerRadius": 10,
-                      "fill": "#DED5CC"
+                      "fill": "#DED5CC",
+                      "cornerRadius": 10
                     },
                     {
-                      "id": "thumb-3",
                       "type": "frame",
+                      "id": "thumb-3",
                       "width": 105,
                       "height": 105,
-                      "cornerRadius": 10,
-                      "fill": "#D4CBC2"
+                      "fill": "#D4CBC2",
+                      "cornerRadius": 10
                     }
                   ]
                 }
