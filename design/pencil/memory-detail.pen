@@ -1,0 +1,291 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "id": "memory-detail-page",
+      "type": "frame",
+      "x": 0,
+      "y": 0,
+      "width": 375,
+      "height": 812,
+      "fill": "#FDF8F5",
+      "layout": "vertical",
+      "clip": true,
+      "children": [
+        {
+          "id": "status-bar",
+          "type": "frame",
+          "width": 375,
+          "height": 44,
+          "fill": "transparent",
+          "layout": "horizontal",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "padding": [0, 20, 0, 20],
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 0,
+          "children": [
+            { "id": "status-time", "type": "text", "content": "9:41", "fontSize": 15, "fontWeight": 600, "fill": "#FFFFFF" },
+            {
+              "id": "status-icons",
+              "type": "frame",
+              "layout": "horizontal",
+              "gap": 6,
+              "children": [
+                { "id": "signal-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "signal", "width": 16, "height": 16, "fill": "#FFFFFF" },
+                { "id": "wifi-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "wifi", "width": 16, "height": 16, "fill": "#FFFFFF" },
+                { "id": "battery-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "battery-full", "width": 16, "height": 16, "fill": "#FFFFFF" }
+              ]
+            }
+          ]
+        },
+
+        {
+          "id": "hero-image",
+          "type": "frame",
+          "width": 375,
+          "height": 300,
+          "fill": "#D4CBC2",
+          "layout": "horizontal",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            { "id": "hero-img-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "image", "width": 56, "height": 56, "fill": "#B0A79E" }
+          ]
+        },
+
+        {
+          "id": "back-button",
+          "type": "frame",
+          "width": 36,
+          "height": 36,
+          "cornerRadius": 18,
+          "fill": "rgba(0,0,0,0.3)",
+          "layout": "horizontal",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "layoutPosition": "absolute",
+          "x": 16,
+          "y": 52,
+          "children": [
+            { "id": "back-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "arrow-left", "width": 20, "height": 20, "fill": "#FFFFFF" }
+          ]
+        },
+
+        {
+          "id": "edit-button",
+          "type": "frame",
+          "width": 36,
+          "height": 36,
+          "cornerRadius": 18,
+          "fill": "rgba(0,0,0,0.3)",
+          "layout": "horizontal",
+          "justifyContent": "center",
+          "alignItems": "center",
+          "layoutPosition": "absolute",
+          "x": 323,
+          "y": 52,
+          "children": [
+            { "id": "edit-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "edit-3", "width": 18, "height": 18, "fill": "#FFFFFF" }
+          ]
+        },
+
+        {
+          "id": "content-card",
+          "type": "frame",
+          "width": 375,
+          "layout": "vertical",
+          "cornerRadius": [24, 24, 0, 0],
+          "fill": "#FFFFFF",
+          "padding": [24, 20, 20, 20],
+          "gap": 20,
+          "layoutPosition": "absolute",
+          "x": 0,
+          "y": 270,
+          "children": [
+            {
+              "id": "title-row",
+              "type": "frame",
+              "layout": "horizontal",
+              "justifyContent": "space-between",
+              "alignItems": "center",
+              "children": [
+                { "id": "detail-title", "type": "text", "content": "周末植物园踏青", "fontSize": 22, "fontWeight": 700, "fill": "#2D2A26" },
+                {
+                  "id": "detail-badge",
+                  "type": "frame",
+                  "cornerRadius": 20,
+                  "fill": "#E8F5E9",
+                  "padding": [4, 12, 4, 12],
+                  "children": [
+                    { "id": "detail-badge-text", "type": "text", "content": "已完成", "fontSize": 12, "fontWeight": 500, "fill": "#4CAF50" }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "id": "meta-row",
+              "type": "frame",
+              "layout": "horizontal",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "meta-date",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    { "id": "meta-date-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "calendar", "width": 16, "height": 16, "fill": "#8A857E" },
+                    { "id": "meta-date-text", "type": "text", "content": "2026-04-20", "fontSize": 14, "fill": "#8A857E" }
+                  ]
+                },
+                {
+                  "id": "meta-author",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "meta-author-avatar",
+                      "type": "frame",
+                      "width": 22,
+                      "height": 22,
+                      "cornerRadius": 11,
+                      "fill": "#FFF0EB",
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        { "id": "meta-avatar-text", "type": "text", "content": "妈", "fontSize": 10, "fontWeight": 600, "fill": "#E8734A" }
+                      ]
+                    },
+                    { "id": "meta-author-name", "type": "text", "content": "妈妈", "fontSize": 14, "fill": "#8A857E" }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "id": "proposal-link",
+              "type": "frame",
+              "cornerRadius": 10,
+              "fill": "#FFF0EB",
+              "padding": [10, 14, 10, 14],
+              "layout": "horizontal",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                { "id": "link-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "link", "width": 14, "height": 14, "fill": "#E8734A" },
+                { "id": "link-text", "type": "text", "content": "来自提议：周末去植物园  #P-0021", "fontSize": 13, "fill": "#E8734A" },
+                { "id": "link-arrow", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "chevron-right", "width": 14, "height": 14, "fill": "#E8734A" }
+              ]
+            },
+
+            {
+              "id": "divider-1",
+              "type": "frame",
+              "width": 335,
+              "height": 1,
+              "fill": "#F0ECE8"
+            },
+
+            {
+              "id": "reflection-section",
+              "type": "frame",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "id": "reflection-label",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    { "id": "reflection-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "heart", "width": 16, "height": 16, "fill": "#E8734A" },
+                    { "id": "reflection-title", "type": "text", "content": "感想", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" }
+                  ]
+                },
+                {
+                  "id": "reflection-text",
+                  "type": "text",
+                  "content": "今天天气特别好，阳光透过树叶洒下来，孩子们在草地上奔跑嬉戏。外婆也难得出来走走，看着一家人在一起，真的很幸福。\n\n下次要记得带野餐垫和风筝！",
+                  "fontSize": 15,
+                  "fill": "#4A4540",
+                  "lineHeight": 1.7,
+                  "textGrowth": "fixed-width"
+                }
+              ]
+            },
+
+            {
+              "id": "divider-2",
+              "type": "frame",
+              "width": 335,
+              "height": 1,
+              "fill": "#F0ECE8"
+            },
+
+            {
+              "id": "photos-section",
+              "type": "frame",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "id": "photos-label",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    { "id": "photos-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "images", "width": 16, "height": 16, "fill": "#E8734A" },
+                    { "id": "photos-title", "type": "text", "content": "更多照片", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" },
+                    { "id": "photos-count", "type": "text", "content": "3张", "fontSize": 13, "fill": "#8A857E" }
+                  ]
+                },
+                {
+                  "id": "photo-grid",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "id": "thumb-1",
+                      "type": "frame",
+                      "width": 105,
+                      "height": 105,
+                      "cornerRadius": 10,
+                      "fill": "#E8E0D8"
+                    },
+                    {
+                      "id": "thumb-2",
+                      "type": "frame",
+                      "width": 105,
+                      "height": 105,
+                      "cornerRadius": 10,
+                      "fill": "#DED5CC"
+                    },
+                    {
+                      "id": "thumb-3",
+                      "type": "frame",
+                      "width": 105,
+                      "height": 105,
+                      "cornerRadius": 10,
+                      "fill": "#D4CBC2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

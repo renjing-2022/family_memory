@@ -1,0 +1,120 @@
+:root {
+  /* ==================== 色彩 ==================== */
+
+  /* 主色 */
+  --color-primary: #E8734A;
+  --color-primary-hover: #D4623B;
+  --color-primary-active: #C05532;
+  --color-primary-light: #FFF0EB;
+  --color-primary-light-hover: #FFE4DA;
+
+  /* 功能色 */
+  --color-success: #4CAF50;
+  --color-success-light: #E8F5E9;
+  --color-warning: #FF9800;
+  --color-warning-light: #FFF3E0;
+  --color-error: #EF5350;
+  --color-error-light: #FFEBEE;
+
+  /* 背景 */
+  --color-bg: #FDF8F5;
+  --color-surface: #FFFFFF;
+  --color-surface-secondary: #F9F6F3;
+
+  /* 文字 */
+  --color-text-primary: #2D2A26;
+  --color-text-secondary: #8A857E;
+  --color-text-placeholder: #C4BBB2;
+  --color-text-on-primary: #FFFFFF;
+
+  /* 边框与分割线 */
+  --color-border: #E8E4DF;
+  --color-divider: #F0ECE8;
+
+  /* 遮罩 */
+  --color-overlay: rgba(0, 0, 0, 0.3);
+
+  /* 成员头像色板 */
+  --color-avatar-orange: #FFF0EB;
+  --color-avatar-orange-fg: #E8734A;
+  --color-avatar-blue: #E3F2FD;
+  --color-avatar-blue-fg: #1976D2;
+  --color-avatar-purple: #F3E5F5;
+  --color-avatar-purple-fg: #7B1FA2;
+  --color-avatar-green: #E8F5E9;
+  --color-avatar-green-fg: #388E3C;
+
+  /* ==================== 圆角 ==================== */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ==================== 间距 ==================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* ==================== 字体 ==================== */
+  --font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+
+  --text-xs: 10px;
+  --text-sm: 12px;
+  --text-caption: 13px;
+  --text-body-sm: 14px;
+  --text-body: 15px;
+  --text-button: 16px;
+  --text-title: 17px;
+  --text-heading: 22px;
+
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  --leading-tight: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* ==================== 阴影 ==================== */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-primary: 0 4px 12px rgba(232, 115, 74, 0.25);
+  --shadow-primary-lg: 0 4px 16px rgba(232, 115, 74, 0.3);
+
+  /* ==================== 尺寸 ==================== */
+  --height-input: 48px;
+  --height-button: 50px;
+  --height-button-sm: 40px;
+  --height-navbar: 56px;
+  --height-tabbar: 64px;
+  --height-statusbar: 44px;
+  --size-avatar: 44px;
+  --size-avatar-sm: 24px;
+  --size-tab-fab: 48px;
+  --size-icon: 24px;
+  --size-icon-sm: 18px;
+  --size-icon-xs: 14px;
+
+  /* ==================== 动效 ==================== */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ==================== 层级 ==================== */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-navbar: 300;
+  --z-tabbar: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+}

@@ -1,0 +1,250 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "id": "proposal-detail-page",
+      "type": "frame",
+      "x": 0,
+      "y": 0,
+      "width": 375,
+      "height": 812,
+      "fill": "#FDF8F5",
+      "layout": "vertical",
+      "clip": true,
+      "children": [
+        {
+          "id": "status-bar",
+          "type": "frame",
+          "width": 375,
+          "height": 44,
+          "fill": "#FFFFFF",
+          "layout": "horizontal",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "padding": [0, 20, 0, 20],
+          "children": [
+            { "id": "status-time", "type": "text", "content": "9:41", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" },
+            {
+              "id": "status-icons",
+              "type": "frame",
+              "layout": "horizontal",
+              "gap": 6,
+              "children": [
+                { "id": "signal-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "signal", "width": 16, "height": 16, "fill": "#2D2A26" },
+                { "id": "wifi-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "wifi", "width": 16, "height": 16, "fill": "#2D2A26" },
+                { "id": "battery-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "battery-full", "width": 16, "height": 16, "fill": "#2D2A26" }
+              ]
+            }
+          ]
+        },
+
+        {
+          "id": "nav-bar",
+          "type": "frame",
+          "width": 375,
+          "height": 56,
+          "layout": "horizontal",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "padding": [0, 16, 0, 16],
+          "fill": "#FFFFFF",
+          "stroke": { "color": "#E8E4DF", "thickness": 1, "alignment": "inside" },
+          "children": [
+            { "id": "nav-back", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "arrow-left", "width": 24, "height": 24, "fill": "#2D2A26" },
+            { "id": "nav-title", "type": "text", "content": "提议详情", "fontSize": 17, "fontWeight": 600, "fill": "#2D2A26" },
+            { "id": "nav-spacer", "type": "frame", "width": 24, "height": 24 }
+          ]
+        },
+
+        {
+          "id": "detail-content",
+          "type": "frame",
+          "width": 375,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [20, 16, 20, 16],
+          "children": [
+            {
+              "id": "proposal-card",
+              "type": "frame",
+              "width": 343,
+              "cornerRadius": 16,
+              "fill": "#FFFFFF",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 20,
+              "effect": { "type": "shadow", "color": "rgba(0,0,0,0.06)", "x": 0, "y": 2, "blur": 12 },
+              "children": [
+                {
+                  "id": "proposal-status-row",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "justifyContent": "space-between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "proposal-badge",
+                      "type": "frame",
+                      "cornerRadius": 20,
+                      "fill": "#FFF3E0",
+                      "padding": [6, 14, 6, 14],
+                      "layout": "horizontal",
+                      "alignItems": "center",
+                      "gap": 6,
+                      "children": [
+                        { "id": "badge-dot", "type": "ellipse", "width": 8, "height": 8, "fill": "#FF9800" },
+                        { "id": "badge-text", "type": "text", "content": "待确认", "fontSize": 13, "fontWeight": 500, "fill": "#FF9800" }
+                      ]
+                    },
+                    { "id": "proposal-id", "type": "text", "content": "#P-0023", "fontSize": 12, "fill": "#C4BBB2" }
+                  ]
+                },
+
+                { "id": "proposal-title", "type": "text", "content": "下周末烧烤聚餐", "fontSize": 22, "fontWeight": 700, "fill": "#2D2A26" },
+
+                {
+                  "id": "info-rows",
+                  "type": "frame",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "info-date",
+                      "type": "frame",
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        { "id": "info-date-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "calendar", "width": 18, "height": 18, "fill": "#8A857E" },
+                        { "id": "info-date-label", "type": "text", "content": "计划日期", "fontSize": 14, "fill": "#8A857E" },
+                        { "id": "info-date-value", "type": "text", "content": "2026年4月27日（周日）", "fontSize": 14, "fontWeight": 500, "fill": "#2D2A26" }
+                      ]
+                    },
+                    {
+                      "id": "info-author",
+                      "type": "frame",
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        { "id": "info-author-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "user", "width": 18, "height": 18, "fill": "#8A857E" },
+                        { "id": "info-author-label", "type": "text", "content": "发起人", "fontSize": 14, "fill": "#8A857E" },
+                        {
+                          "id": "author-chip",
+                          "type": "frame",
+                          "layout": "horizontal",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "id": "author-avatar",
+                              "type": "frame",
+                              "width": 24,
+                              "height": 24,
+                              "cornerRadius": 12,
+                              "fill": "#FFF0EB",
+                              "layout": "horizontal",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                { "id": "author-avatar-text", "type": "text", "content": "妈", "fontSize": 11, "fontWeight": 600, "fill": "#E8734A" }
+                              ]
+                            },
+                            { "id": "author-name", "type": "text", "content": "妈妈", "fontSize": 14, "fontWeight": 500, "fill": "#2D2A26" }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+
+                {
+                  "id": "divider",
+                  "type": "frame",
+                  "width": 303,
+                  "height": 1,
+                  "fill": "#F0ECE8"
+                },
+
+                {
+                  "id": "desc-section",
+                  "type": "frame",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    { "id": "desc-label", "type": "text", "content": "补充说明", "fontSize": 13, "fontWeight": 500, "fill": "#8A857E" },
+                    { "id": "desc-text", "type": "text", "content": "在小区旁边的河边烧烤区，大家一起来。需要提前买食材和木炭，哥哥帮忙搬桌椅。", "fontSize": 15, "fill": "#2D2A26", "lineHeight": 1.6, "textGrowth": "fixed-width" }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "id": "confirm-section",
+              "type": "frame",
+              "width": 343,
+              "cornerRadius": 16,
+              "fill": "#FFFFFF",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 20,
+              "effect": { "type": "shadow", "color": "rgba(0,0,0,0.04)", "x": 0, "y": 2, "blur": 8 },
+              "children": [
+                {
+                  "id": "confirm-header",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    { "id": "confirm-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "users", "width": 18, "height": 18, "fill": "#8A857E" },
+                    { "id": "confirm-title", "type": "text", "content": "确认状态", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" }
+                  ]
+                },
+                {
+                  "id": "confirm-hint",
+                  "type": "frame",
+                  "cornerRadius": 8,
+                  "fill": "#F9F6F3",
+                  "padding": [10, 14, 10, 14],
+                  "layout": "horizontal",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    { "id": "hint-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "info", "width": 16, "height": 16, "fill": "#8A857E" },
+                    { "id": "hint-text", "type": "text", "content": "任意一位家庭成员确认即通过", "fontSize": 13, "fill": "#8A857E" }
+                  ]
+                },
+                { "id": "confirm-status", "type": "text", "content": "暂无人确认", "fontSize": 14, "fill": "#C4BBB2", "textAlign": "center" }
+              ]
+            },
+
+            {
+              "id": "confirm-button",
+              "type": "frame",
+              "width": 343,
+              "height": 54,
+              "cornerRadius": 14,
+              "fill": "#E8734A",
+              "layout": "horizontal",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "gap": 8,
+              "effect": { "type": "shadow", "color": "rgba(232,115,74,0.3)", "x": 0, "y": 4, "blur": 16 },
+              "children": [
+                { "id": "confirm-btn-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "check-circle", "width": 20, "height": 20, "fill": "#FFFFFF" },
+                { "id": "confirm-btn-text", "type": "text", "content": "确认这个提议", "fontSize": 16, "fontWeight": 600, "fill": "#FFFFFF" }
+              ]
+            },
+
+            {
+              "id": "note-after-confirm",
+              "type": "note",
+              "content": "确认后：\n1. 提议状态变为\"已通过\"\n2. 自动创建一条生活记录草稿\n3. 出现\"去完善记录\"入口\n\n若重复确认，提示\"提议已通过\"并引导查看已有记录。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

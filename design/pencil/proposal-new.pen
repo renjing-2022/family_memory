@@ -1,0 +1,231 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "id": "proposal-new-page",
+      "type": "frame",
+      "x": 0,
+      "y": 0,
+      "width": 375,
+      "height": 812,
+      "fill": "#FDF8F5",
+      "layout": "vertical",
+      "clip": true,
+      "children": [
+        {
+          "id": "status-bar",
+          "type": "frame",
+          "width": 375,
+          "height": 44,
+          "fill": "#FFFFFF",
+          "layout": "horizontal",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "padding": [0, 20, 0, 20],
+          "children": [
+            { "id": "status-time", "type": "text", "content": "9:41", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" },
+            {
+              "id": "status-icons",
+              "type": "frame",
+              "layout": "horizontal",
+              "gap": 6,
+              "children": [
+                { "id": "signal-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "signal", "width": 16, "height": 16, "fill": "#2D2A26" },
+                { "id": "wifi-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "wifi", "width": 16, "height": 16, "fill": "#2D2A26" },
+                { "id": "battery-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "battery-full", "width": 16, "height": 16, "fill": "#2D2A26" }
+              ]
+            }
+          ]
+        },
+
+        {
+          "id": "nav-bar",
+          "type": "frame",
+          "width": 375,
+          "height": 56,
+          "layout": "horizontal",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "padding": [0, 16, 0, 16],
+          "fill": "#FFFFFF",
+          "stroke": { "color": "#E8E4DF", "thickness": 1, "alignment": "inside" },
+          "children": [
+            { "id": "nav-back", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "arrow-left", "width": 24, "height": 24, "fill": "#2D2A26" },
+            { "id": "nav-title", "type": "text", "content": "发起提议", "fontSize": 17, "fontWeight": 600, "fill": "#2D2A26" },
+            { "id": "nav-spacer", "type": "frame", "width": 24, "height": 24 }
+          ]
+        },
+
+        {
+          "id": "form-content",
+          "type": "frame",
+          "width": 375,
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [24, 16, 24, 16],
+          "children": [
+            {
+              "id": "hero-section",
+              "type": "frame",
+              "layout": "horizontal",
+              "gap": 12,
+              "alignItems": "center",
+              "padding": [16, 16, 16, 16],
+              "cornerRadius": 12,
+              "fill": "#FFF0EB",
+              "children": [
+                { "id": "hero-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "lightbulb", "width": 28, "height": 28, "fill": "#E8734A" },
+                {
+                  "id": "hero-text",
+                  "type": "frame",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    { "id": "hero-title", "type": "text", "content": "发起一个生活提议", "fontSize": 15, "fontWeight": 600, "fill": "#E8734A" },
+                    { "id": "hero-desc", "type": "text", "content": "提议通过后将自动创建回忆草稿", "fontSize": 12, "fill": "#C4735A" }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "id": "field-title",
+              "type": "frame",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "label-title",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 4,
+                  "children": [
+                    { "id": "label-title-text", "type": "text", "content": "提议标题", "fontSize": 15, "fontWeight": 500, "fill": "#2D2A26" },
+                    { "id": "label-title-req", "type": "text", "content": "*", "fontSize": 15, "fill": "#E8734A" }
+                  ]
+                },
+                {
+                  "id": "input-title",
+                  "type": "frame",
+                  "height": 48,
+                  "cornerRadius": 10,
+                  "fill": "#FFFFFF",
+                  "stroke": { "color": "#E8E4DF", "thickness": 1, "alignment": "inside" },
+                  "layout": "horizontal",
+                  "alignItems": "center",
+                  "padding": [0, 14, 0, 14],
+                  "children": [
+                    { "id": "input-title-placeholder", "type": "text", "content": "例如：周末去植物园踏青", "fontSize": 15, "fill": "#C4BBB2" }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "id": "field-date",
+              "type": "frame",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "label-date",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 4,
+                  "children": [
+                    { "id": "label-date-text", "type": "text", "content": "计划日期", "fontSize": 15, "fontWeight": 500, "fill": "#2D2A26" },
+                    { "id": "label-date-req", "type": "text", "content": "*", "fontSize": 15, "fill": "#E8734A" }
+                  ]
+                },
+                {
+                  "id": "input-date",
+                  "type": "frame",
+                  "height": 48,
+                  "cornerRadius": 10,
+                  "fill": "#FFFFFF",
+                  "stroke": { "color": "#E8E4DF", "thickness": 1, "alignment": "inside" },
+                  "layout": "horizontal",
+                  "justifyContent": "space-between",
+                  "alignItems": "center",
+                  "padding": [0, 14, 0, 14],
+                  "children": [
+                    { "id": "input-date-placeholder", "type": "text", "content": "请选择日期", "fontSize": 15, "fill": "#C4BBB2" },
+                    { "id": "input-date-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "calendar", "width": 20, "height": 20, "fill": "#8A857E" }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "id": "field-desc",
+              "type": "frame",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "id": "label-desc",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 4,
+                  "children": [
+                    { "id": "label-desc-text", "type": "text", "content": "补充说明", "fontSize": 15, "fontWeight": 500, "fill": "#2D2A26" },
+                    { "id": "label-desc-opt", "type": "text", "content": "（可选）", "fontSize": 13, "fill": "#8A857E" }
+                  ]
+                },
+                {
+                  "id": "textarea-desc",
+                  "type": "frame",
+                  "height": 120,
+                  "cornerRadius": 10,
+                  "fill": "#FFFFFF",
+                  "stroke": { "color": "#E8E4DF", "thickness": 1, "alignment": "inside" },
+                  "layout": "vertical",
+                  "padding": 14,
+                  "children": [
+                    { "id": "textarea-placeholder", "type": "text", "content": "可以补充地点、预算、需要准备的事项等...", "fontSize": 15, "fill": "#C4BBB2", "textGrowth": "fixed-width" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "id": "form-spacer",
+          "type": "frame",
+          "width": 375,
+          "height": "fill_container"
+        },
+
+        {
+          "id": "submit-section",
+          "type": "frame",
+          "width": 375,
+          "layout": "vertical",
+          "padding": [16, 16, 32, 16],
+          "fill": "#FFFFFF",
+          "stroke": { "color": "#E8E4DF", "thickness": 1, "alignment": "inside" },
+          "children": [
+            {
+              "id": "submit-button",
+              "type": "frame",
+              "width": 343,
+              "height": 50,
+              "cornerRadius": 12,
+              "fill": "#E8734A",
+              "layout": "horizontal",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "gap": 8,
+              "effect": { "type": "shadow", "color": "rgba(232,115,74,0.25)", "x": 0, "y": 4, "blur": 12 },
+              "children": [
+                { "id": "submit-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "send", "width": 18, "height": 18, "fill": "#FFFFFF" },
+                { "id": "submit-text", "type": "text", "content": "发起提议", "fontSize": 16, "fontWeight": 600, "fill": "#FFFFFF" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

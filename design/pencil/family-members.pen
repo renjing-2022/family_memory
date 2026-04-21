@@ -1,0 +1,407 @@
+{
+  "version": "2.10",
+  "children": [
+    {
+      "id": "family-members-page",
+      "type": "frame",
+      "x": 0,
+      "y": 0,
+      "width": 375,
+      "height": 812,
+      "fill": "#FDF8F5",
+      "layout": "vertical",
+      "clip": true,
+      "children": [
+        {
+          "id": "status-bar",
+          "type": "frame",
+          "width": 375,
+          "height": 44,
+          "fill": "#FFFFFF",
+          "layout": "horizontal",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "padding": [0, 20, 0, 20],
+          "children": [
+            { "id": "status-time", "type": "text", "content": "9:41", "fontSize": 15, "fontWeight": 600, "fill": "#2D2A26" },
+            {
+              "id": "status-icons",
+              "type": "frame",
+              "layout": "horizontal",
+              "gap": 6,
+              "children": [
+                { "id": "signal-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "signal", "width": 16, "height": 16, "fill": "#2D2A26" },
+                { "id": "wifi-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "wifi", "width": 16, "height": 16, "fill": "#2D2A26" },
+                { "id": "battery-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "battery-full", "width": 16, "height": 16, "fill": "#2D2A26" }
+              ]
+            }
+          ]
+        },
+
+        {
+          "id": "nav-bar",
+          "type": "frame",
+          "width": 375,
+          "height": 56,
+          "layout": "horizontal",
+          "justifyContent": "space-between",
+          "alignItems": "center",
+          "padding": [0, 16, 0, 16],
+          "fill": "#FFFFFF",
+          "stroke": { "color": "#E8E4DF", "thickness": 1, "alignment": "inside" },
+          "children": [
+            { "id": "nav-back", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "arrow-left", "width": 24, "height": 24, "fill": "#2D2A26" },
+            { "id": "nav-title", "type": "text", "content": "家庭成员", "fontSize": 17, "fontWeight": 600, "fill": "#2D2A26" },
+            { "id": "nav-spacer", "type": "frame", "width": 24, "height": 24 }
+          ]
+        },
+
+        {
+          "id": "family-header",
+          "type": "frame",
+          "width": 375,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [20, 16, 20, 16],
+          "children": [
+            {
+              "id": "family-info-card",
+              "type": "frame",
+              "width": 343,
+              "cornerRadius": 16,
+              "fill": "#FFFFFF",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 20,
+              "effect": { "type": "shadow", "color": "rgba(0,0,0,0.04)", "x": 0, "y": 2, "blur": 8 },
+              "children": [
+                {
+                  "id": "family-name-row",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "justifyContent": "space-between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "family-icon-name",
+                      "type": "frame",
+                      "layout": "horizontal",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "family-icon",
+                          "type": "frame",
+                          "width": 44,
+                          "height": 44,
+                          "cornerRadius": 12,
+                          "fill": "#FFF0EB",
+                          "layout": "horizontal",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            { "id": "family-house-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "home", "width": 22, "height": 22, "fill": "#E8734A" }
+                          ]
+                        },
+                        {
+                          "id": "family-texts",
+                          "type": "frame",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            { "id": "family-name-text", "type": "text", "content": "温馨小家", "fontSize": 17, "fontWeight": 600, "fill": "#2D2A26" },
+                            { "id": "family-count", "type": "text", "content": "4 位家庭成员", "fontSize": 13, "fill": "#8A857E" }
+                          ]
+                        }
+                      ]
+                    },
+                    { "id": "family-settings", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "settings", "width": 20, "height": 20, "fill": "#8A857E" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "id": "members-section",
+          "type": "frame",
+          "width": 375,
+          "layout": "vertical",
+          "gap": 2,
+          "padding": [0, 16, 0, 16],
+          "children": [
+            { "id": "members-label", "type": "text", "content": "成员列表", "fontSize": 13, "fontWeight": 500, "fill": "#8A857E", "padding": [0, 0, 8, 0] },
+
+            {
+              "id": "member-1",
+              "type": "frame",
+              "width": 343,
+              "cornerRadius": [12, 12, 0, 0],
+              "fill": "#FFFFFF",
+              "layout": "horizontal",
+              "justifyContent": "space-between",
+              "alignItems": "center",
+              "padding": [14, 16, 14, 16],
+              "children": [
+                {
+                  "id": "m1-left",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "m1-avatar",
+                      "type": "frame",
+                      "width": 44,
+                      "height": 44,
+                      "cornerRadius": 22,
+                      "fill": "#FFF0EB",
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        { "id": "m1-avatar-text", "type": "text", "content": "妈", "fontSize": 18, "fontWeight": 600, "fill": "#E8734A" }
+                      ]
+                    },
+                    {
+                      "id": "m1-info",
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        { "id": "m1-name", "type": "text", "content": "小丽", "fontSize": 16, "fontWeight": 500, "fill": "#2D2A26" },
+                        { "id": "m1-role", "type": "text", "content": "妈妈", "fontSize": 13, "fill": "#8A857E" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "m1-me-badge",
+                  "type": "frame",
+                  "cornerRadius": 12,
+                  "fill": "#FFF0EB",
+                  "padding": [3, 10, 3, 10],
+                  "children": [
+                    { "id": "m1-me-text", "type": "text", "content": "我", "fontSize": 12, "fontWeight": 500, "fill": "#E8734A" }
+                  ]
+                }
+              ]
+            },
+
+            {
+              "id": "member-divider-1",
+              "type": "frame",
+              "width": 343,
+              "height": 1,
+              "fill": "#F5F2EF",
+              "padding": [0, 72, 0, 0]
+            },
+
+            {
+              "id": "member-2",
+              "type": "frame",
+              "width": 343,
+              "fill": "#FFFFFF",
+              "layout": "horizontal",
+              "justifyContent": "space-between",
+              "alignItems": "center",
+              "padding": [14, 16, 14, 16],
+              "children": [
+                {
+                  "id": "m2-left",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "m2-avatar",
+                      "type": "frame",
+                      "width": 44,
+                      "height": 44,
+                      "cornerRadius": 22,
+                      "fill": "#E3F2FD",
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        { "id": "m2-avatar-text", "type": "text", "content": "爸", "fontSize": 18, "fontWeight": 600, "fill": "#1976D2" }
+                      ]
+                    },
+                    {
+                      "id": "m2-info",
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        { "id": "m2-name", "type": "text", "content": "大明", "fontSize": 16, "fontWeight": 500, "fill": "#2D2A26" },
+                        { "id": "m2-role", "type": "text", "content": "爸爸", "fontSize": 13, "fill": "#8A857E" }
+                      ]
+                    }
+                  ]
+                },
+                { "id": "m2-chevron", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "chevron-right", "width": 18, "height": 18, "fill": "#C4BBB2" }
+              ]
+            },
+
+            {
+              "id": "member-divider-2",
+              "type": "frame",
+              "width": 343,
+              "height": 1,
+              "fill": "#F5F2EF"
+            },
+
+            {
+              "id": "member-3",
+              "type": "frame",
+              "width": 343,
+              "fill": "#FFFFFF",
+              "layout": "horizontal",
+              "justifyContent": "space-between",
+              "alignItems": "center",
+              "padding": [14, 16, 14, 16],
+              "children": [
+                {
+                  "id": "m3-left",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "m3-avatar",
+                      "type": "frame",
+                      "width": 44,
+                      "height": 44,
+                      "cornerRadius": 22,
+                      "fill": "#F3E5F5",
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        { "id": "m3-avatar-text", "type": "text", "content": "外", "fontSize": 18, "fontWeight": 600, "fill": "#7B1FA2" }
+                      ]
+                    },
+                    {
+                      "id": "m3-info",
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        { "id": "m3-name", "type": "text", "content": "王奶奶", "fontSize": 16, "fontWeight": 500, "fill": "#2D2A26" },
+                        { "id": "m3-role", "type": "text", "content": "外婆", "fontSize": 13, "fill": "#8A857E" }
+                      ]
+                    }
+                  ]
+                },
+                { "id": "m3-chevron", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "chevron-right", "width": 18, "height": 18, "fill": "#C4BBB2" }
+              ]
+            },
+
+            {
+              "id": "member-divider-3",
+              "type": "frame",
+              "width": 343,
+              "height": 1,
+              "fill": "#F5F2EF"
+            },
+
+            {
+              "id": "member-4",
+              "type": "frame",
+              "width": 343,
+              "cornerRadius": [0, 0, 12, 12],
+              "fill": "#FFFFFF",
+              "layout": "horizontal",
+              "justifyContent": "space-between",
+              "alignItems": "center",
+              "padding": [14, 16, 14, 16],
+              "children": [
+                {
+                  "id": "m4-left",
+                  "type": "frame",
+                  "layout": "horizontal",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "m4-avatar",
+                      "type": "frame",
+                      "width": 44,
+                      "height": 44,
+                      "cornerRadius": 22,
+                      "fill": "#E8F5E9",
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        { "id": "m4-avatar-text", "type": "text", "content": "哥", "fontSize": 18, "fontWeight": 600, "fill": "#388E3C" }
+                      ]
+                    },
+                    {
+                      "id": "m4-info",
+                      "type": "frame",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        { "id": "m4-name", "type": "text", "content": "小宇", "fontSize": 16, "fontWeight": 500, "fill": "#2D2A26" },
+                        { "id": "m4-role", "type": "text", "content": "哥哥", "fontSize": 13, "fill": "#8A857E" }
+                      ]
+                    }
+                  ]
+                },
+                { "id": "m4-chevron", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "chevron-right", "width": 18, "height": 18, "fill": "#C4BBB2" }
+              ]
+            }
+          ]
+        },
+
+        {
+          "id": "members-spacer",
+          "type": "frame",
+          "width": 375,
+          "height": "fill_container"
+        },
+
+        {
+          "id": "invite-section",
+          "type": "frame",
+          "width": 375,
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [16, 16, 32, 16],
+          "children": [
+            {
+              "id": "invite-button",
+              "type": "frame",
+              "width": 343,
+              "height": 54,
+              "cornerRadius": 14,
+              "fill": "#E8734A",
+              "layout": "horizontal",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "gap": 8,
+              "effect": { "type": "shadow", "color": "rgba(232,115,74,0.25)", "x": 0, "y": 4, "blur": 12 },
+              "children": [
+                { "id": "invite-icon", "type": "icon_font", "iconFontFamily": "lucide", "iconFontName": "user-plus", "width": 20, "height": 20, "fill": "#FFFFFF" },
+                { "id": "invite-text", "type": "text", "content": "邀请家庭成员", "fontSize": 16, "fontWeight": 600, "fill": "#FFFFFF" }
+              ]
+            },
+            {
+              "id": "invite-hint",
+              "type": "text",
+              "content": "通过分享邀请链接，邀请家人加入",
+              "fontSize": 12,
+              "fill": "#C4BBB2",
+              "textAlign": "center"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
