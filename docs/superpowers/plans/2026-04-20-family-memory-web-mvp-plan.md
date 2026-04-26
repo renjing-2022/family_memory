@@ -6,25 +6,109 @@
 
 **Architecture:** 采用单仓库网页应用结构，前端使用组件化页面，后端提供最小可用接口，数据库以关系模型承载家庭、成员、提议、确认记录与生活记录。核心一致性通过“提议确认 + 自动草稿创建”事务实现，前端通过状态化页面呈现闭环过程与异常恢复入口。
 
-**Tech Stack:** 下一代网页应用框架、类型化脚本语言、关系数据库访问层、组件样式方案、自动化测试框架、接口测试工具
+**Tech Stack:** `Nuxt 3` + `Vue 3` + `TypeScript`、`PostgreSQL` + `Drizzle`、`Vitest`、`Playwright`、`pnpm`
+
+## 技术基线冻结（实施门禁）
+
+- 前端：`Nuxt 3` + `Vue 3` + `TypeScript`。
+- 后端：同仓接口层（`Nuxt/Nitro` 服务端接口）+ 领域服务分层（页面 -> 接口 -> 服务 -> 数据）。
+- 数据：`PostgreSQL` + `Drizzle`，必须包含迁移机制。
+- 测试：`Vitest`（单元）+ `Playwright`（端到端），统一脚本 `test:unit`、`test:e2e`。
+- 包管理：统一 `pnpm`，禁止模块私自引入第二套包管理与脚本体系。
+- 目录约定：页面路由采用 `pages/`（或 `src/pages/`），服务端接口采用 `server/api/`（或 `src/server/api/`）。
+- 门禁：未完成以上基线初始化，不进入功能代码实施。
+
+### 接口层与服务层职责硬规则（必须遵守）
+
+- `server/api/**` 仅处理协议层：参数读取、鉴权、调用服务、返回响应，不承载业务规则实现。
+- `server/services/**` 仅处理业务规则：状态流转、校验、幂等、一致性等核心逻辑全部放在服务层。
+- 单元测试默认只覆盖 `server/services/**`；接口层通过接口测试或端到端测试覆盖，不将 `server/api/**` 当通用函数库直接复用。
+- 若接口层逻辑超过“薄适配”范围，必须下沉到服务层后再提交。
+
+## Nuxt 初始化与脚本约定
+
+- 初始化命令：`pnpm dlx nuxi@latest init .`
+- 安装依赖：`pnpm install`
+- 本地启动：`pnpm dev`
+- 生产构建：`pnpm build`
+- 本地预览：`pnpm preview`
+- 单元测试：`pnpm test:unit`
+- 端到端测试：`pnpm test:e2e`
+
+建议在 `package.json` 固定脚本：
+
+```json
+{
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
+  }
+}
+```
+
+## Vue 组件模板约定（实施默认模板）
+
+页面组件（`pages/*.vue`）默认模板：
+
+```vue
+<script setup lang="ts">
+definePageMeta({
+  layout: "default"
+});
+</script>
+
+<template>
+  <main>
+    <h1>页面标题</h1>
+  </main>
+</template>
+```
+
+业务组件（`components/**/*.vue`）默认模板：
+
+```vue
+<script setup lang="ts">
+interface Props {
+  title: string;
+}
+
+defineProps<Props>();
+</script>
+
+<template>
+  <section>{{ title }}</section>
+</template>
+```
+
+服务端接口（`server/api/**/*.ts`）默认模板：
+
+```ts
+export default defineEventHandler(async (event) => {
+  void event;
+  return { ok: true };
+});
+```
 
 ---
 
 ## 实施前文件结构规划
 
 **Create:**
-- `src/app/(auth)/login/page.tsx`
-- `src/app/(app)/timeline/page.tsx`
-- `src/app/(app)/proposals/new/page.tsx`
-- `src/app/(app)/proposals/[id]/page.tsx`
-- `src/app/(app)/memories/new/page.tsx`
-- `src/app/(app)/memories/[id]/page.tsx`
-- `src/app/(app)/family/members/page.tsx`
-- `src/components/proposal/proposal-form.tsx`
-- `src/components/proposal/proposal-confirm-button.tsx`
-- `src/components/memory/memory-form.tsx`
-- `src/components/timeline/timeline-list.tsx`
-- `src/components/timeline/filter-bar.tsx`
+- `src/pages/login.vue`
+- `src/pages/timeline.vue`
+- `src/pages/proposals/new.vue`
+- `src/pages/proposals/[id].vue`
+- `src/pages/memories/new.vue`
+- `src/pages/memories/[id].vue`
+- `src/pages/family/members.vue`
+- `src/components/proposal/proposal-form.vue`
+- `src/components/proposal/proposal-confirm-button.vue`
+- `src/components/memory/memory-form.vue`
+- `src/components/timeline/timeline-list.vue`
+- `src/components/timeline/filter-bar.vue`
 - `src/server/db/schema.ts`
 - `src/server/db/client.ts`
 - `src/server/services/proposal-service.ts`
@@ -55,7 +139,7 @@
 ### Task 1: 初始化工程与测试骨架
 
 **Files:**
-- Create: `src/app/(app)/timeline/page.tsx`
+- Create: `src/pages/timeline.vue`
 - Create: `src/server/db/client.ts`
 - Modify: `package.json`
 - Modify: `README.md`
@@ -79,11 +163,11 @@ Expected: FAIL，提示页面不存在或路由未定义
 
 - [ ] **Step 3: 实现最小页面与脚本命令**
 
-```tsx
-// src/app/(app)/timeline/page.tsx
-export default function TimelinePage() {
-  return <h1>家庭时间线</h1>;
-}
+```vue
+<!-- src/pages/timeline.vue -->
+<template>
+  <h1>家庭时间线</h1>
+</template>
 ```
 
 ```json
@@ -104,7 +188,7 @@ Expected: PASS
 - [ ] **Step 5: 提交**
 
 ```bash
-git add package.json src/app/(app)/timeline/page.tsx tests/e2e/proposal-to-memory.spec.ts
+git add package.json src/pages/timeline.vue tests/e2e/proposal-to-memory.spec.ts
 git commit -m "chore: 初始化网页端与测试骨架"
 ```
 
@@ -180,8 +264,8 @@ git commit -m "feat: 定义家庭记忆核心数据模型"
 
 **Files:**
 - Create: `src/server/api/proposals.ts`
-- Create: `src/components/proposal/proposal-form.tsx`
-- Create: `src/app/(app)/proposals/new/page.tsx`
+- Create: `src/components/proposal/proposal-form.vue`
+- Create: `src/pages/proposals/new.vue`
 - Test: `tests/api/proposals-api.test.ts`
 
 - [ ] **Step 1: 编写失败的接口测试**
@@ -214,18 +298,16 @@ export async function createProposal(input: { title: string; plannedDate: string
 }
 ```
 
-```tsx
-// src/components/proposal/proposal-form.tsx
-export function ProposalForm() {
-  return (
-    <form>
-      <input name="title" placeholder="提议标题" required />
-      <input name="plannedDate" type="date" required />
-      <textarea name="description" placeholder="补充说明（可选）" />
-      <button type="submit">发起提议</button>
-    </form>
-  );
-}
+```vue
+<!-- src/components/proposal/proposal-form.vue -->
+<template>
+  <form>
+    <input name="title" placeholder="提议标题" required />
+    <input name="plannedDate" type="date" required />
+    <textarea name="description" placeholder="补充说明（可选）" />
+    <button type="submit">发起提议</button>
+  </form>
+</template>
 ```
 
 - [ ] **Step 4: 运行测试并确认通过**
@@ -236,7 +318,7 @@ Expected: PASS
 - [ ] **Step 5: 提交**
 
 ```bash
-git add src/server/api/proposals.ts src/components/proposal/proposal-form.tsx src/app/(app)/proposals/new/page.tsx tests/api/proposals-api.test.ts
+git add src/server/api/proposals.ts src/components/proposal/proposal-form.vue src/pages/proposals/new.vue tests/api/proposals-api.test.ts
 git commit -m "feat: 支持创建家庭生活提议"
 ```
 
@@ -244,8 +326,8 @@ git commit -m "feat: 支持创建家庭生活提议"
 
 **Files:**
 - Create: `src/server/services/proposal-service.ts`
-- Create: `src/components/proposal/proposal-confirm-button.tsx`
-- Create: `src/app/(app)/proposals/[id]/page.tsx`
+- Create: `src/components/proposal/proposal-confirm-button.vue`
+- Create: `src/pages/proposals/[id].vue`
 - Test: `tests/server/proposal-service.test.ts`
 - Test: `tests/e2e/proposal-to-memory.spec.ts`
 
@@ -300,7 +382,7 @@ Expected: PASS，覆盖“确认后出现草稿”
 - [ ] **Step 5: 提交**
 
 ```bash
-git add src/server/services/proposal-service.ts src/components/proposal/proposal-confirm-button.tsx src/app/(app)/proposals/[id]/page.tsx tests/server/proposal-service.test.ts tests/e2e/proposal-to-memory.spec.ts
+git add src/server/services/proposal-service.ts src/components/proposal/proposal-confirm-button.vue src/pages/proposals/[id].vue tests/server/proposal-service.test.ts tests/e2e/proposal-to-memory.spec.ts
 git commit -m "feat: 实现提议确认与自动草稿事务"
 ```
 
@@ -309,9 +391,9 @@ git commit -m "feat: 实现提议确认与自动草稿事务"
 **Files:**
 - Create: `src/server/services/memory-service.ts`
 - Create: `src/server/api/memories.ts`
-- Create: `src/components/memory/memory-form.tsx`
-- Create: `src/app/(app)/memories/new/page.tsx`
-- Create: `src/app/(app)/memories/[id]/page.tsx`
+- Create: `src/components/memory/memory-form.vue`
+- Create: `src/pages/memories/new.vue`
+- Create: `src/pages/memories/[id].vue`
 - Test: `tests/server/memory-service.test.ts`
 
 - [ ] **Step 1: 编写失败的记录最简必填测试**
@@ -360,7 +442,7 @@ Expected: PASS
 - [ ] **Step 5: 提交**
 
 ```bash
-git add src/server/services/memory-service.ts src/server/api/memories.ts src/components/memory/memory-form.tsx src/app/(app)/memories/new/page.tsx src/app/(app)/memories/[id]/page.tsx tests/server/memory-service.test.ts
+git add src/server/services/memory-service.ts src/server/api/memories.ts src/components/memory/memory-form.vue src/pages/memories/new.vue src/pages/memories/[id].vue tests/server/memory-service.test.ts
 git commit -m "feat: 支持生活记录最简创建与编辑"
 ```
 
@@ -368,9 +450,9 @@ git commit -m "feat: 支持生活记录最简创建与编辑"
 
 **Files:**
 - Create: `src/server/api/timeline.ts`
-- Create: `src/components/timeline/timeline-list.tsx`
-- Create: `src/components/timeline/filter-bar.tsx`
-- Modify: `src/app/(app)/timeline/page.tsx`
+- Create: `src/components/timeline/timeline-list.vue`
+- Create: `src/components/timeline/filter-bar.vue`
+- Modify: `src/pages/timeline.vue`
 - Test: `tests/server/timeline-service.test.ts`
 - Test: `tests/e2e/timeline-filter.spec.ts`
 
@@ -402,18 +484,20 @@ export async function queryTimeline(input: { memberId?: string; tag?: string; st
 }
 ```
 
-```tsx
-// src/components/timeline/filter-bar.tsx
-export function FilterBar() {
-  return (
-    <div>
-      <select name="member"><option value="">全部成员</option></select>
-      <select name="tag"><option value="">全部主题</option></select>
-      <input name="startDate" type="date" />
-      <input name="endDate" type="date" />
-    </div>
-  );
-}
+```vue
+<!-- src/components/timeline/filter-bar.vue -->
+<template>
+  <div>
+    <select name="member">
+      <option value="">全部成员</option>
+    </select>
+    <select name="tag">
+      <option value="">全部主题</option>
+    </select>
+    <input name="startDate" type="date" />
+    <input name="endDate" type="date" />
+  </div>
+</template>
 ```
 
 - [ ] **Step 4: 运行单测与端到端测试并确认通过**
@@ -427,7 +511,7 @@ Expected: PASS，覆盖筛选与空状态
 - [ ] **Step 5: 提交**
 
 ```bash
-git add src/server/api/timeline.ts src/components/timeline/filter-bar.tsx src/components/timeline/timeline-list.tsx src/app/(app)/timeline/page.tsx tests/server/timeline-service.test.ts tests/e2e/timeline-filter.spec.ts
+git add src/server/api/timeline.ts src/components/timeline/filter-bar.vue src/components/timeline/timeline-list.vue src/pages/timeline.vue tests/server/timeline-service.test.ts tests/e2e/timeline-filter.spec.ts
 git commit -m "feat: 实现家庭时间线与筛选"
 ```
 
@@ -436,7 +520,7 @@ git commit -m "feat: 实现家庭时间线与筛选"
 **Files:**
 - Create: `src/server/services/member-service.ts`
 - Create: `src/server/api/members.ts`
-- Create: `src/app/(app)/family/members/page.tsx`
+- Create: `src/pages/family/members.vue`
 - Test: `tests/server/member-service.test.ts`
 
 - [ ] **Step 1: 编写失败的邀请制测试**
@@ -484,7 +568,7 @@ Expected: PASS
 - [ ] **Step 5: 提交**
 
 ```bash
-git add src/server/services/member-service.ts src/server/api/members.ts src/app/(app)/family/members/page.tsx tests/server/member-service.test.ts
+git add src/server/services/member-service.ts src/server/api/members.ts src/pages/family/members.vue tests/server/member-service.test.ts
 git commit -m "feat: 支持邀请制成员管理与自由角色"
 ```
 
@@ -492,7 +576,7 @@ git commit -m "feat: 支持邀请制成员管理与自由角色"
 
 **Files:**
 - Create: `src/server/api/upload.ts`
-- Modify: `src/components/memory/memory-form.tsx`
+- Modify: `src/components/memory/memory-form.vue`
 - Test: `tests/server/memory-service.test.ts`
 
 - [ ] **Step 1: 编写失败的上传失败可降级测试**
@@ -526,8 +610,8 @@ export async function uploadPhoto(file: File) {
 }
 ```
 
-```tsx
-// src/components/memory/memory-form.tsx 片段
+```vue
+<!-- src/components/memory/memory-form.vue 片段 -->
 <p>图片上传失败不会影响标题与日期保存，你可以稍后补传。</p>
 ```
 
@@ -539,7 +623,7 @@ Expected: PASS
 - [ ] **Step 5: 提交**
 
 ```bash
-git add src/server/api/upload.ts src/components/memory/memory-form.tsx tests/server/memory-service.test.ts
+git add src/server/api/upload.ts src/components/memory/memory-form.vue tests/server/memory-service.test.ts
 git commit -m "feat: 增加图片上传与失败降级能力"
 ```
 
